@@ -1,7 +1,7 @@
-import cors from "cors"
-import express from "express"
-import mongoose from "mongoose"
 import config from "./config.js"
+import mongoose from "mongoose"
+import express from "express"
+import cors from "cors"
 
 await mongoose.connect(config.db.uri)
 
