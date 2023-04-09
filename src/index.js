@@ -1,4 +1,4 @@
-import config from "./config.js"
+import prepareUserRoutes from "./routes/prepareUserRoutes.js"
 import mongoose from "mongoose"
 import express from "express"
 import cors from "cors"
@@ -26,5 +26,7 @@ app.use((req, res, next) => {
 
   next()
 })
+
+prepareUserRoutes(app)
 
 app.listen(config.port, () => console.log(`Listening on: ${config.port}`))
