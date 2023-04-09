@@ -4,10 +4,10 @@
     "dev": "nodemon src/index.js --ext js"
   },
   "devDependencies": {
-    "eslint": "^8.36.0",
-    "eslint-config-prettier": "^8.7.0",
-    "nodemon": "^2.0.21",
-    "prettier": "^2.8.4"
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.7"
   },
   "dependencies": {
     "cors": "^2.8.5",
