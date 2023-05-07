@@ -24,10 +24,14 @@ const signInSchema = yup.object().shape({
 const prepareUserRoutes = (app) => {
   app.post("/sign-up", ValidationMiddleware(signUpSchema), async (req, res) => {
     const { username, email, password } = req.body
-    const existingUser = await UserModel.findOne({ email })
+    const existingUser = await UserModel.findOne({
+      $or: [{ username }, { email }],
+    })
 
     if (existingUser) {
-      res.send({ result: true })
+      res.status(401).send({
+        error: "This e-mail or username is already associated with an account.",
+      })
 
       return
     }
