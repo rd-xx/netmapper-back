@@ -9,6 +9,7 @@ import {
   passwordValidator,
   emailValidator,
 } from "../utils/validators.js"
+import log from "../utils/log.js"
 
 const signUpSchema = yup.object().shape({
   username: usernameValidator,
@@ -45,6 +46,8 @@ const prepareUserRoutes = (app) => {
       passwordSalt,
     }).save()
 
+    log.debug("Created user $s.", [username])
+
     res.send({ result: true })
   })
 
@@ -71,8 +74,7 @@ const prepareUserRoutes = (app) => {
         payload: {
           user: {
             id: String(user._id),
-            firstName: user.firstName,
-            lastName: user.lastName,
+            username: user.username,
           },
         },
       },

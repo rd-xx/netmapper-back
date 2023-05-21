@@ -1,8 +1,6 @@
 import * as yup from "yup"
 
 const ValidationMiddleware = (schema) => async (req, res, next) => {
-  console.log(req.body)
-
   try {
     await schema.validate(req.body, {
       abortEarly: false,

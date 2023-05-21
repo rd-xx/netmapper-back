@@ -18,6 +18,7 @@ const config = {
       pepper: process.env.SECURITY_PASSWORD_PEPPER,
     },
   },
+  debug: process.env.DEBUG === "true",
 }
 
 export default config
