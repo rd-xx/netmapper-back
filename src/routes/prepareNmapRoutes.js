@@ -1,17 +1,17 @@
 import ValidationMiddleware from "../middlewares/ValidationMiddleware.js"
 import FetchScanMiddleware from "../middlewares/FetchScanMiddleware.js"
 import AuthMiddleware from "../middlewares/AuthMiddleware.js"
-import { ipValidator } from "../utils/validators.js"
+import ScanModel from "../db/models/ScanModel.js"
+import { ipSchema } from "../utils/schemas.js"
 import scan from "../utils/scan.js"
 import * as yup from "yup"
 import {
   availableInputOptions,
   availableNoInputOptions,
 } from "../utils/nmapOptions.js"
-import ScanModel from "../db/models/ScanModel.js"
 
 const commandSchema = yup.object().shape({
-  target: ipValidator,
+  target: ipSchema,
   options: yup
     .array()
     .of(

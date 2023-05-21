@@ -6,19 +6,19 @@ import config from "../utils/config.js"
 import log from "../utils/log.js"
 import * as yup from "yup"
 import {
-  usernameValidator,
-  passwordValidator,
-  emailValidator,
+  usernameSchema,
+  passwordSchema,
+  emailSchema,
 } from "../utils/validators.js"
 
 const signUpSchema = yup.object().shape({
-  username: usernameValidator,
-  email: emailValidator,
-  password: passwordValidator,
+  username: usernameSchema,
+  email: emailSchema,
+  password: passwordSchema,
 })
 
 const signInSchema = yup.object().shape({
-  email: emailValidator,
+  email: emailSchema,
   password: yup.string().required(),
 })
 

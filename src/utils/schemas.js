@@ -1,14 +1,10 @@
 import * as yup from "yup"
 
-export const usernameValidator = yup
-  .string()
-  .trim()
-  .required()
-  .label("Username")
+export const usernameSchema = yup.string().trim().required().label("Username")
 
-export const emailValidator = yup.string().email().required().label("E-mail")
+export const emailSchema = yup.string().email().required().label("E-mail")
 
-export const passwordValidator = yup
+export const passwordSchema = yup
   .string()
   .min(8)
   .matches(/^.*(?=.*[0-9]+).*$/, "Password must contain a number")
@@ -21,7 +17,7 @@ export const passwordValidator = yup
   .required()
   .label("Password")
 
-export const ipValidator = yup
+export const ipSchema = yup
   .string()
   .matches(
     /^(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)(?:\.(?!$)|$)){4}$/,
