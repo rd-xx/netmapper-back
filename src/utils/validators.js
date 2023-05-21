@@ -12,8 +12,8 @@ export const passwordValidator = yup
   .string()
   .min(8)
   .matches(/^.*(?=.*[0-9]+).*$/, "Password must contain a number")
-  .matches(/^.*(?=.*\p{Ll}+).*$/u, "Password must contain a lower case letter")
-  .matches(/^.*(?=.*\p{Lu}+).*$/u, "Password must contain a upper case letter")
+  .matches(/^.*(?=.*\p{Ll}+).*$/u, "Password must contain a lowercase letter")
+  .matches(/^.*(?=.*\p{Lu}+).*$/u, "Password must contain an uppercase letter")
   .matches(
     /^.*(?=.*[^0-9\p{L}]+).*$/u,
     "Password must contain a special character"
