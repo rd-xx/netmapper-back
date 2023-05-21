@@ -3,13 +3,13 @@ import hashPassword from "../utils/hashPassword.js"
 import UserModel from "../db/models/UserModel.js"
 import jsonwebtoken from "jsonwebtoken"
 import config from "../utils/config.js"
+import log from "../utils/log.js"
 import * as yup from "yup"
 import {
   usernameValidator,
   passwordValidator,
   emailValidator,
 } from "../utils/validators.js"
-import log from "../utils/log.js"
 
 const signUpSchema = yup.object().shape({
   username: usernameValidator,

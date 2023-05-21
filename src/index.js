@@ -31,5 +31,8 @@ app.use((req, res, next) => {
 
 prepareUserRoutes(app)
 prepareNmapRoutes(app)
+app.use(function (_, res) {
+  res.status(404).send({ error: "Not found" })
+})
 
 app.listen(config.port, () => console.log(`Listening on: ${config.port}`))

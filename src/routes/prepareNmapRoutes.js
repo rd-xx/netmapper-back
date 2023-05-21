@@ -1,4 +1,5 @@
 import ValidationMiddleware from "../middlewares/ValidationMiddleware.js"
+import FetchScanMiddleware from "../middlewares/FetchScanMiddleware.js"
 import AuthMiddleware from "../middlewares/AuthMiddleware.js"
 import { ipValidator } from "../utils/validators.js"
 import scan from "../utils/scan.js"
@@ -52,6 +53,26 @@ const prepareNmapRoutes = (app) => {
 
       await scan(target, options, session.user)
       res.send({ message: "ok" })
+    }
+  )
+
+  app.get(
+    "/nmap/:scanId",
+    AuthMiddleware,
+    FetchScanMiddleware,
+    async (req, res) => {
+      const {
+        session: { user },
+        scan,
+      } = req.ctx
+
+      if (user.id !== scan.user.id) {
+        res.status(403).send({ error: "Forbidden" })
+
+        return
+      }
+
+      res.send({ result: scan })
     }
   )
 }
