@@ -20,3 +20,12 @@ export const passwordValidator = yup
   )
   .required()
   .label("Password")
+
+export const ipValidator = yup
+  .string()
+  .matches(
+    /^(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)(?:\.(?!$)|$)){4}$/,
+    "Invalid IP address."
+  )
+  .required()
+  .label("Target")

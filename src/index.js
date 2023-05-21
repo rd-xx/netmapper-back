@@ -1,4 +1,5 @@
 import prepareUserRoutes from "./routes/prepareUserRoutes.js"
+import prepareNmapRoutes from "./routes/prepareNmapRoutes.js"
 import config from "./utils/config.js"
 import mongoose from "mongoose"
 import express from "express"
@@ -29,5 +30,6 @@ app.use((req, res, next) => {
 })
 
 prepareUserRoutes(app)
+prepareNmapRoutes(app)
 
 app.listen(config.port, () => console.log(`Listening on: ${config.port}`))
