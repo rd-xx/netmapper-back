@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.js --ext js"
+    "dev": "nodemon src/index.js --ext js",
+    "lint": "eslint . --ext .js"
   },
   "dependencies": {
     "chalk": "^5.2.0",
