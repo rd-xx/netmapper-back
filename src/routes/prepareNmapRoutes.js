@@ -36,8 +36,9 @@ const prepareNmapRoutes = (app) => {
     res.send({
       result: {
         inputOptions: availableInputOptions.map((x) => ({
-          option: x.option,
-          vaidator: x.validator.toString(),
+          key: x.key,
+          label: x.label,
+          validator: x.clientSideValidator.toString(),
         })),
         noInputOptions: availableNoInputOptions,
       },
@@ -69,7 +70,7 @@ const prepareNmapRoutes = (app) => {
   })
 
   app.get(
-    "/nmap/:scanId",
+    "/nmap/scan/:scanId",
     AuthMiddleware,
     FetchScanMiddleware,
     async (req, res) => {

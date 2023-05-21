@@ -9,7 +9,7 @@ import {
   usernameSchema,
   passwordSchema,
   emailSchema,
-} from "../utils/validators.js"
+} from "../utils/schemas.js"
 
 const signUpSchema = yup.object().shape({
   username: usernameSchema,
