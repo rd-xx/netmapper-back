@@ -2,7 +2,7 @@ import ScanModel from "../db/models/ScanModel.js"
 import { spawn } from "child_process"
 import log from "./log.js"
 
-const scan = async (target, options, user) => {
+const scan = async (target, options, user, res) => {
   const ls = spawn("nmap", [target])
   let scanId = null
 
@@ -18,6 +18,7 @@ const scan = async (target, options, user) => {
       }).save()
 
       scanId = instance._id
+      res.send({ result: instance })
     } else {
       await ScanModel.findByIdAndUpdate(scanId, {
         $push: {

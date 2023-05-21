@@ -51,8 +51,7 @@ const prepareNmapRoutes = (app) => {
       const { target, options } = req.body
       const { session } = req.ctx
 
-      await scan(target, options, session.user)
-      res.send({ message: "ok" })
+      scan(target, options, session.user, res)
     }
   )
 
