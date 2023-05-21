@@ -1,21 +1,29 @@
 import EmbeddedUserSchema from "./EmbeddedUserSchema.js"
 import { Schema } from "mongoose"
 
-const HistorySchema = new Schema(
+const ScanSchema = new Schema(
   {
     target: {
       type: String,
       required: true,
     },
     options: {
-      type: String,
+      type: [String],
       required: true,
     },
     response: {
-      type: String,
+      type: [String],
       required: true,
     },
-    author: {
+    status: {
+      type: String,
+      required: true,
+      default: "ongoing",
+    },
+    error: {
+      type: [String],
+    },
+    user: {
       type: EmbeddedUserSchema,
       required: true,
     },
@@ -25,4 +33,4 @@ const HistorySchema = new Schema(
   }
 )
 
-export default HistorySchema
+export default ScanSchema
