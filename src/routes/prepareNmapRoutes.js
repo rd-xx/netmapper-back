@@ -51,7 +51,12 @@ const prepareNmapRoutes = (app) => {
       const { target, options } = req.body
       const { session } = req.ctx
 
-      scan(target, options, session.user, res)
+      scan(
+        target,
+        options, // Transforms 'p=80' into '-p 80'
+        session.user,
+        res
+      )
     }
   )
 

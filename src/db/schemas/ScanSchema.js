@@ -13,7 +13,7 @@ const ScanSchema = new Schema(
     },
     response: {
       type: [String],
-      required: true,
+      default: [],
     },
     status: {
       type: String,
@@ -22,6 +22,7 @@ const ScanSchema = new Schema(
     },
     error: {
       type: [String],
+      default: [],
     },
     user: {
       type: EmbeddedUserSchema,
