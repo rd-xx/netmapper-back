@@ -8,6 +8,7 @@ import {
   availableInputOptions,
   availableNoInputOptions,
 } from "../utils/nmapOptions.js"
+import ScanModel from "../db/models/ScanModel.js"
 
 const commandSchema = yup.object().shape({
   target: ipValidator,
@@ -59,6 +60,13 @@ const prepareNmapRoutes = (app) => {
       )
     }
   )
+
+  app.get("/nmap/scans", AuthMiddleware, async (req, res) => {
+    const { session } = req.ctx
+    const scans = await ScanModel.find({ user: session.user })
+
+    res.send({ result: scans })
+  })
 
   app.get(
     "/nmap/:scanId",
