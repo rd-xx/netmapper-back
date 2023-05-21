@@ -3,12 +3,6 @@
   "scripts": {
     "dev": "nodemon src/index.js --ext js"
   },
-  "devDependencies": {
-    "eslint": "^8.40.0",
-    "eslint-config-prettier": "^8.8.0",
-    "nodemon": "^2.0.22",
-    "prettier": "^2.8.8"
-  },
   "dependencies": {
     "chalk": "^5.2.0",
     "cors": "^2.8.5",
@@ -17,5 +11,11 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.1.0",
     "yup": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
   }
 }
